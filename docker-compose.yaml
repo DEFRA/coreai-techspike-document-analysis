@@ -1,0 +1,10 @@
+services:
+  coreai-techspike-document-analysis:
+    build:
+      context: .
+      target: production
+    image: coreai-techspike-document-analysis
+    container_name: coreai-techspike-document-analysis
+    environment:
+      APPINSIGHTS_CLOUDROLE: coreai-techspike-document-analysis-local
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}

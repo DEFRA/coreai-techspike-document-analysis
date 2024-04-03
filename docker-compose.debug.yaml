@@ -1,0 +1,3 @@
+services:
+  coreai-techspike-document-analysis:
+    command: npm run start:debug

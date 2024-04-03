@@ -1,0 +1,3 @@
+{{- include "adp-helm-library.azure-ingress" (list . "coreai-techspike-document-analysis.ingress") -}}
+{{- define "coreai-techspike-document-analysis.ingress" -}}
+{{- end -}}

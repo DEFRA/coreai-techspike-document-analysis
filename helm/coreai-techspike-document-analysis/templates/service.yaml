@@ -1,0 +1,4 @@
+{{- include "adp-helm-library.cluster-ip-service" (list . "coreai-techspike-document-analysis.cluster-ip-service") -}}
+{{- define "coreai-techspike-document-analysis.cluster-ip-service" -}}
+{{- end -}}
+
