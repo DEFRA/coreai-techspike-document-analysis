@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = [{
   method: 'GET',
   path: '/',
   options: {
@@ -6,4 +6,4 @@ module.exports = {
       return h.view('home')
     }
   }
-}
+}]

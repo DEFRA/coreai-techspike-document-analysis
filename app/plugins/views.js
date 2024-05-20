@@ -32,8 +32,8 @@ module.exports = {
       appVersion: pkg.version,
       assetPath: '/static',
       govukAssetPath: '/assets',
-      serviceName: 'coreai-techspike-document-analysis',
-      pageTitle: 'coreai-techspike-document-analysis - GOV.UK'
+      serviceName: 'Documents Analysis',
+      pageTitle: 'Documents Analysis - GOV.UK'
     }
   }
 }

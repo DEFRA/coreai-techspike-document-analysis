@@ -1,0 +1,61 @@
+ {# Backstage scaffolder to render the file as is and to skip this content to interpret as template   #}
+{% extends '_layout.njk' %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "Upload a new document",
+        href: "#"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-body">
+
+      <h1 class="govuk-heading-xl">Upload a document</h1>
+
+      <form method="post" novalidate="novalidate" enctype="multipart/form-data">
+        <div class="govuk-form-group{% if err and filetype not in ['pdf', 'doc', 'docx'] %} govuk-form-group--error{% endif %}">
+          <div class="govuk-form-group">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="file-upload-1">
+                Choose a file to upload
+              </label>
+              {% if err and uploadtype == 'file' and filetype not in ['pdf', 'doc', 'docx'] %}
+              <p class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> Upload a valid file
+              </p>
+              {% endif %}
+              <input class="govuk-file-upload" id="file-upload-1" name="document" type="file">
+            </div>
+            <div id="location-upload-hint">
+              <p>The file should:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Have an extension of .pdf, .doc or .docx</li>
+                <li>Be no larger than 50 MB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <div class="govuk-!-margin-top-7">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Upload document
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

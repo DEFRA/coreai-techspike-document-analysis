@@ -8,3 +8,4 @@ services:
     environment:
       APPINSIGHTS_CLOUDROLE: coreai-techspike-document-analysis-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+      DOCUMENTS_API_BASE_URL: ${DOCUMENTS_API_BASE_URL:-http://host.docker.internal:3001}

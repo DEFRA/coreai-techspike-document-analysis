@@ -1,0 +1,32 @@
+ {# Backstage scaffolder to render the file as is and to skip this content to interpret as template   #}
+{% extends '_layout.njk' %}
+
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">{{serviceName}}</h1>
+      <p class="govuk-body summary">{{ answer | replace('\n', '<br>') | safe }}</p>
+      <p class="govuk-body">Completion Tokens: {{tokenUsage.completionTokens}} | Prompt Tokens: {{tokenUsage.promptTokens}} | Total Tokens: {{tokenUsage.totalTokens}}</p>
+      <form id="response_form" action="/documents/chat" method="post">
+        <h2 id="customise_input" class="govuk-heading-m govuk-!-margin-top-8">Ask a question</h2>
+        <textarea class="govuk-textarea" id="question" name="question" rows="5" aria-describedby="question-hint"></textarea>
+        <button type="submit" name="action" value="Ask" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button">
+          <span>Ask</span>
+        </button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
