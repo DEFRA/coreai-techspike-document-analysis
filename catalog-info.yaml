@@ -42,5 +42,5 @@ metadata:
 spec:
   type: frontend
   lifecycle: alpha
-  owner: "group:default/mcu-ai"
+  owner: "group:default/crai-mcu"
   
