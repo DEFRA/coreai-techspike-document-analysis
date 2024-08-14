@@ -1,4 +1,4 @@
-const { uploadDocument, updateDocumentMetadata } = require('../api/documents')
+const { uploadDocument, updateDocumentMetadata, uploadDocumentToParse } = require('../api/documents')
 const { mime } = require('../constants/document-types')
 const { getExtension } = require('../lib/file')
 
@@ -33,6 +33,12 @@ const upload = async (payload) => {
   await updateDocumentMetadata(id, metadataPayload)
 }
 
+const uploadToParse = async (payload) => {
+  const { buffer, type } = getBuffer(payload)
+  return uploadDocumentToParse(buffer, type)
+}
+
 module.exports = {
-  upload
+  upload,
+  uploadToParse
 }

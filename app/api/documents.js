@@ -22,6 +22,13 @@ const uploadDocument = async (document, contentType) => {
   return post(`${baseUrl}/documents`, document, headers)
 }
 
+const uploadDocumentToParse = async (document, contentType) => {
+  const headers = {
+    'Content-Type': contentType
+  }
+  return post(`${baseUrl}/document/parse`, document, headers)
+}
+
 const updateDocumentMetadata = async (id, metadata) => {
   return put(`${baseUrl}/documents/${id}`, metadata)
 }
@@ -31,5 +38,6 @@ module.exports = {
   getDocumentById,
   getDocumentMetadata,
   uploadDocument,
-  updateDocumentMetadata
+  updateDocumentMetadata,
+  uploadDocumentToParse
 }
